@@ -547,16 +547,23 @@
     function loadnet() {
       var t = document.getElementById('tt').value;
       var j = JSON.parse(t);
-      w.agents[0].brain.value_net.fromJSON(j);
+      for (i=0;i<w.agents.length;i++){
+        w.agents[i].brain.value_net.fromJSON(j);
+      }
       stoplearn(); // also stop learning
       gonormal();
+
     }
     
     function startlearn() {
-      w.agents[0].brain.learning = true;
+      for(i=0;i<w.agents.length;i++){
+        w.agents[i].brain.learning = true;
+      }
     }
     function stoplearn() {
-      w.agents[0].brain.learning = false;
+      for(i=0;i<w.agents.length;i++){
+        w.agents[i].brain.learning = false;
+      }
     }
     
     function reload() {
@@ -572,7 +579,7 @@
       ctx = canvas.getContext("2d");
       
       w = new World();
-      w.agents = [new Agent()];
+      w.agents = [new Agent(),new Agent()];
       
       gofast();
     }
