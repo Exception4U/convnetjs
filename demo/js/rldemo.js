@@ -537,23 +537,23 @@
       skipdraw = false;
       simspeed = 0;
     }
-    
+ 
     function savenet() {
      for(i=0;i<w.agents.length;i++){
         var agent1 = w.agents[0].brain.value_net.toJSON();
         var agent2 = w.agents[1].brain.value_net.toJSON();
+
      }
-      var j = w.agents[0].brain.value_net.toJSON();
-      var t = JSON.stringify(j);
+      var t = JSON.stringify( {[agent1,agent2} ) ;
       document.getElementById('tt').value = t;
     }
-    
+
     function loadnet() {
       var t = document.getElementById('tt').value;
       var j = JSON.parse(t);
 
       for (i=0;i<w.agents.length;i++){
-        w.agents[i].brain.value_net.fromJSON(j);
+        w.agents[i].brain.value_net.fromJSON(j[i]);
       }
       stoplearn(); // also stop learning
       gonormal();
