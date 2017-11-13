@@ -1,6 +1,6 @@
 
 # ConvNetJS
-This is fork on andrej karpathy's fork [https://cs.stanford.edu/people/karpathy/convnetjs/demo/rldemo.html] for Waterworld game. It extends waterworld demo of single to multiple with negative rewards for robot collision as well as embedding shared experiance replay memory for two Q-networks.
+This is fork on andrej [karpathy's fork](https://cs.stanford.edu/people/karpathy/convnetjs/demo/rldemo.html) for Waterworld game. It extends waterworld demo of single to multiple with negative rewards for robot collision as well as embedding shared experiance replay memory for two Q-networks.
 
 ## Demo
 
