@@ -580,6 +580,8 @@
       
       w = new World();
       w.agents = [new Agent(),new Agent()];
+      w.agents[0].brain = brain0;
+      w.agents[0].brain = brain1;
       
       gofast();
     }
