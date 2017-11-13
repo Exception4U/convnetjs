@@ -303,7 +303,7 @@
       //this.brain = new deepqlearn.Brain(this.eyes.length * 3, this.actions.length);
       var spec = document.getElementById('qspec').value;
       eval(spec);
-      this.brain = brain;
+      //this.brain = brain;
       
       this.reward_bonus = 0.0;
       this.digestion_signal = 0.0;
@@ -539,6 +539,10 @@
     }
     
     function savenet() {
+     for(i=0;i<w.agents.length;i++){
+        var agent1 = w.agents[0].brain.value_net.toJSON();
+        var agent2 = w.agents[1].brain.value_net.toJSON();
+     }
       var j = w.agents[0].brain.value_net.toJSON();
       var t = JSON.stringify(j);
       document.getElementById('tt').value = t;
@@ -547,6 +551,7 @@
     function loadnet() {
       var t = document.getElementById('tt').value;
       var j = JSON.parse(t);
+
       for (i=0;i<w.agents.length;i++){
         w.agents[i].brain.value_net.fromJSON(j);
       }
@@ -581,7 +586,7 @@
       w = new World();
       w.agents = [new Agent(),new Agent()];
       w.agents[0].brain = brain0;
-      w.agents[0].brain = brain1;
+      w.agents[1].brain = brain1;
       
       gofast();
     }
