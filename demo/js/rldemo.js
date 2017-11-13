@@ -527,8 +527,7 @@
     }
     function gonormal() {
       window.clearInterval(current_interval_id);
-      current_interval_id = setInterval(tick, 30);
-      skipdraw = false;
+
       simspeed = 1;
     }
     function goslow() {
@@ -544,7 +543,7 @@
         var agent2 = w.agents[1].brain.value_net.toJSON();
 
      }
-      var t = JSON.stringify( {[agent1,agent2} ) ;
+      var t = JSON.stringify( {0:agent1 , 1:agent2} ) ;
       document.getElementById('tt').value = t;
     }
 
@@ -572,7 +571,7 @@
     }
     
     function reload() {
-      w.agents = [new Agent()]; // this should simply work. I think... ;\
+      w.agents = [new Agent(), new Agent()]; // this should simply work. I think... ;\
       reward_graph = new cnnvis.Graph(); // reinit
     }
     
@@ -585,6 +584,9 @@
       
       w = new World();
       w.agents = [new Agent(),new Agent()];
+    
+      var spec = document.getElementById('qspec').value;
+      eval(spec)
       w.agents[0].brain = brain0;
       w.agents[1].brain = brain1;
       
