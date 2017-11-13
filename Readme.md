@@ -1,6 +1,14 @@
 
 # ConvNetJS
+This is fork on andrej karpathy's fork [https://cs.stanford.edu/people/karpathy/convnetjs/demo/rldemo.html] for Waterworld game. It extends waterworld demo of single to multiple with negative rewards for robot collision as well as embedding shared experiance replay memory for two Q-networks.
 
+## Demo
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=kO6N6v3HEkY
+" target="_blank"><img src="http://img.youtube.com/vi/kO6N6v3HEkY/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
+## ConvNetJS library
 ConvNetJS is a Javascript implementation of Neural networks, together with nice browser-based demos. It currently supports:
 
 - Common **Neural Network modules** (fully connected layers, non-linearities)
