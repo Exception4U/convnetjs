@@ -411,7 +411,7 @@
       }
     }
     
-    var reward_graph = new cnnvis.Graph();
+    var reward_graph = new cnnvis.MultiGraph(["Agent1","Agent2"]);
     function draw_stats() {
       var canvas = document.getElementById("vis_canvas");
       var ctx = canvas.getContext("2d");
@@ -432,8 +432,11 @@
       }
       ctx.stroke();
       
+      //updating dirty logic for two agents.Needs refinement for more than two agents
       if(w.clock % 200 === 0) {
-        reward_graph.add(w.clock/200, b.average_reward_window.get_average());
+        reward_graph.add(w.clock/200, 
+          [w.agents[0].brain.average_reward_window.get_average(),
+            w.agents[1].brain.average_reward_window.get_average()]);
         var gcanvas = document.getElementById("graph_canvas");
         reward_graph.drawSelf(gcanvas);
       }
@@ -572,7 +575,7 @@
     
     function reload() {
       w.agents = [new Agent(), new Agent()]; // this should simply work. I think... ;\
-      reward_graph = new cnnvis.Graph(); // reinit
+      reward_graph = new cnnvis.MultiGraph(); // reinit
     }
     
     var w; // global world object
