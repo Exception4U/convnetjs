@@ -91,10 +91,10 @@
       this.walls = []; 
       var pad = 10;
       util_add_box(this.walls, pad, pad, this.W-pad*2, this.H-pad*2);
-      util_add_box(this.walls, 100, 100, 200, 300); // inner walls
-      this.walls.pop();
-      util_add_box(this.walls, 400, 100, 200, 300);
-      this.walls.pop();
+      // util_add_box(this.walls, 100, 100, 200, 300); // inner walls
+      // this.walls.pop();
+      // util_add_box(this.walls, 400, 100, 200, 300);
+      // this.walls.pop();
       
       // set up food and poison
       this.items = []
