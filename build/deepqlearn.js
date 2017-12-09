@@ -111,7 +111,8 @@ var deepqlearn = deepqlearn || { REVISION: 'ALPHA' };
     // various housekeeping variables
     this.age = 0; // incremented every backward()
     this.forward_passes = 0; // incremented every forward()
-    this.epsilon = 1.0; // controls exploration exploitation tradeoff. Should be annealed over time
+    // this.epsilon = 1.0; // controls exploration exploitation tradeoff. Should be annealed over time
+    this.epsilon = 0.0
     this.latest_reward = 0;
     this.last_input_array = [];
     this.average_reward_window = new cnnutil.Window(1000, 10);
@@ -229,6 +230,8 @@ var deepqlearn = deepqlearn || { REVISION: 'ALPHA' };
         e.state0 = this.net_window[n-2];
         e.action0 = this.action_window[n-2];
         e.reward0 = this.reward_window[n-2];
+
+        // console.log(this.reward_window[n-2]);
         e.state1 = this.net_window[n-1];
         if(this.experience.length < this.experience_size) {
           this.experience.push(e);
