@@ -74,7 +74,7 @@
     // item is circle thing on the floor that agent can interact with (see or eat, etc)
     var Item = function(x, y, type) {
       this.p = new Vec(x, y); // position
-      this.type = 2;
+      this.type = type;
       this.rad = 10; // default radius
       this.age = 0;
       this.cleanup_ = false;
@@ -101,8 +101,8 @@
       for(var k=0;k<30;k++) {
         var x = convnetjs.randf(20, this.W-20);
         var y = convnetjs.randf(20, this.H-20);
-        var t = convnetjs.randi(1, 1); // food or poison (1 and 2)
-        var it = new Item(x, y, 2);
+        var t = convnetjs.randi(1, 3); // food or poison (1 and 2)
+        var it = new Item(x, y, t);
         this.items.push(it);
       }
     }
