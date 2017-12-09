@@ -101,7 +101,7 @@
       for(var k=0;k<30;k++) {
         var x = convnetjs.randf(20, this.W-20);
         var y = convnetjs.randf(20, this.H-20);
-        // var t = convnetjs.randi(1, 1); // food or poison (1 and 2)
+        var t = convnetjs.randi(1, 1); // food or poison (1 and 2)
         var it = new Item(x, y, 2);
         this.items.push(it);
       }
